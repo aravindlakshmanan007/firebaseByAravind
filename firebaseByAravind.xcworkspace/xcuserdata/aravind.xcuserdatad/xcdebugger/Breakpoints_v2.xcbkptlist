@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   type = "0"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "firebaseByAravind/mainViewController.swift"
+            timestampString = "568457900.9662319"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "14"
+            endingLineNumber = "14"
+            landmarkName = "tableView(_:numberOfRowsInSection:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "firebaseByAravind.mainViewController.uilabel.getter : weak Swift.Optional&lt;__C.UILabel&gt;"
+                  moduleName = "firebaseByAravind"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/aravind/Desktop/firebaseByAravind/firebaseByAravind/mainViewController.swift"
+                  timestampString = "568457902.669116"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "14"
+                  endingLineNumber = "14"
+                  offsetFromSymbolStart = "86">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "firebaseByAravind.mainViewController.uilabel.setter : weak Swift.Optional&lt;__C.UILabel&gt;"
+                  moduleName = "firebaseByAravind"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/aravind/Desktop/firebaseByAravind/firebaseByAravind/mainViewController.swift"
+                  timestampString = "568457902.675316"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "14"
+                  endingLineNumber = "14"
+                  offsetFromSymbolStart = "106">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "firebaseByAravind.mainViewController.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; firebaseByAravind.mainViewController"
+                  moduleName = "firebaseByAravind"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/aravind/Desktop/firebaseByAravind/firebaseByAravind/mainViewController.swift"
+                  timestampString = "568457902.678534"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "14"
+                  endingLineNumber = "14"
+                  offsetFromSymbolStart = "57">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "firebaseByAravind.mainViewController.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;firebaseByAravind.mainViewController&gt;"
+                  moduleName = "firebaseByAravind"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/aravind/Desktop/firebaseByAravind/firebaseByAravind/mainViewController.swift"
+                  timestampString = "568457902.680795"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "14"
+                  endingLineNumber = "14"
+                  offsetFromSymbolStart = "50">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>

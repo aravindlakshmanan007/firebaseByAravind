@@ -1,0 +1,6 @@
+framework module Pods_firebaseByAravind {
+  umbrella header "Pods-firebaseByAravind-umbrella.h"
+
+  export *
+  module * { export * }
+}
