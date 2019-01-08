@@ -9,10 +9,14 @@
 import UIKit
 
 class TableViewController: UITableViewController {
-    let itemarray=["buy apple","buy eggs","finish assignment"]
+    var itemarray=[""]
+    let arraykey="listitem"
+    let db=UserDefaults.standard
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        if let item=db.object(forKey: arraykey) as? [String]{
+           itemarray=item
+        }
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -91,5 +95,21 @@ class TableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
+    // MARK: - add item method
+    
+    @IBAction func additem(_ sender: UIBarButtonItem) {
+        var textfield = UITextField()
+        let alert=UIAlertController(title: "Add New Item", message: "", preferredStyle: .alert)
+        let alertaction=UIAlertAction(title: "Add item", style: .default) { (alert) in
+            self.itemarray.append(textfield.text!)
+            self.db.set(self.itemarray, forKey: self.arraykey)
+            self.tableView.reloadData()
+        }
+        alert.addTextField { (text) in
+            text.placeholder="Enter the new item"
+            textfield=text
+        }
+        alert.addAction(alertaction)
+        present(alert,animated: true,completion: nil)
+    }
 }

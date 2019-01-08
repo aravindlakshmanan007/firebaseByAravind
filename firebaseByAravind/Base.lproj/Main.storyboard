@@ -147,7 +147,14 @@
                             <outlet property="delegate" destination="2CT-wG-1cF" id="eHI-6u-kQG"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Checklist item" id="F2x-oe-XB8"/>
+                    <navigationItem key="navigationItem" title="Checklist item" id="F2x-oe-XB8">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="mEW-gK-BGR">
+                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <action selector="additem:" destination="2CT-wG-1cF" id="DUi-GR-d78"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dEA-7E-Brr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -178,6 +185,6 @@
         <image name="logo" width="166" height="117"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="58a-16-SYr"/>
+        <segue reference="Bv8-SN-4w5"/>
     </inferredMetricsTieBreakers>
 </document>
