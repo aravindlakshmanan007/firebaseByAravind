@@ -14,6 +14,8 @@
 		F24FF51721DE6065003ADDAD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F24FF51621DE6065003ADDAD /* Assets.xcassets */; };
 		F24FF51A21DE6065003ADDAD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F24FF51821DE6065003ADDAD /* LaunchScreen.storyboard */; };
 		F24FF52221DE67A3003ADDAD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F24FF52121DE67A2003ADDAD /* GoogleService-Info.plist */; };
+		F258C5E221E4FBAD00B653F8 /* item.swift in Sources */ = {isa = PBXBuildFile; fileRef = F258C5E121E4FBAD00B653F8 /* item.swift */; };
+		F258C5E921E5014800B653F8 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F258C5E821E5014800B653F8 /* Default-568h@2x.png */; };
 		F27BE17121E1FC370088A5D0 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F27BE17021E1FC370088A5D0 /* TableViewController.swift */; };
 		F2FD682421DFB2BF006798C0 /* register.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FD682321DFB2BF006798C0 /* register.swift */; };
 /* End PBXBuildFile section */
@@ -29,6 +31,8 @@
 		F24FF51921DE6065003ADDAD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F24FF51B21DE6065003ADDAD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F24FF52121DE67A2003ADDAD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		F258C5E121E4FBAD00B653F8 /* item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = item.swift; sourceTree = "<group>"; };
+		F258C5E821E5014800B653F8 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		F27BE17021E1FC370088A5D0 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		F2FD682321DFB2BF006798C0 /* register.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = register.swift; sourceTree = "<group>"; };
 		F3C08231E10AC306C30514FF /* Pods-firebaseByAravind.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-firebaseByAravind.release.xcconfig"; path = "Pods/Target Support Files/Pods-firebaseByAravind/Pods-firebaseByAravind.release.xcconfig"; sourceTree = "<group>"; };
@@ -66,6 +70,7 @@
 		F24FF50321DE6063003ADDAD = {
 			isa = PBXGroup;
 			children = (
+				F258C5E821E5014800B653F8 /* Default-568h@2x.png */,
 				F24FF50E21DE6063003ADDAD /* firebaseByAravind */,
 				F24FF50D21DE6063003ADDAD /* Products */,
 				605076CC5075AE2165103776 /* Pods */,
@@ -84,17 +89,58 @@
 		F24FF50E21DE6063003ADDAD /* firebaseByAravind */ = {
 			isa = PBXGroup;
 			children = (
+				F24FF51B21DE6065003ADDAD /* Info.plist */,
 				F24FF50F21DE6063003ADDAD /* AppDelegate.swift */,
+				F258C5E721E4FCEA00B653F8 /* Controllers */,
+				F258C5E421E4FC5B00B653F8 /* authetication */,
+				F258C5E321E4FC3D00B653F8 /* DataModel */,
+				F258C5E621E4FCD400B653F8 /* supporting files */,
+				F258C5E521E4FC8600B653F8 /* plist */,
+			);
+			path = firebaseByAravind;
+			sourceTree = "<group>";
+		};
+		F258C5E321E4FC3D00B653F8 /* DataModel */ = {
+			isa = PBXGroup;
+			children = (
+				F258C5E121E4FBAD00B653F8 /* item.swift */,
+			);
+			path = DataModel;
+			sourceTree = "<group>";
+		};
+		F258C5E421E4FC5B00B653F8 /* authetication */ = {
+			isa = PBXGroup;
+			children = (
 				F24FF51121DE6063003ADDAD /* ViewController.swift */,
 				F2FD682321DFB2BF006798C0 /* register.swift */,
-				F27BE17021E1FC370088A5D0 /* TableViewController.swift */,
+			);
+			path = authetication;
+			sourceTree = "<group>";
+		};
+		F258C5E521E4FC8600B653F8 /* plist */ = {
+			isa = PBXGroup;
+			children = (
+				F24FF52121DE67A2003ADDAD /* GoogleService-Info.plist */,
+			);
+			path = plist;
+			sourceTree = "<group>";
+		};
+		F258C5E621E4FCD400B653F8 /* supporting files */ = {
+			isa = PBXGroup;
+			children = (
 				F24FF51321DE6063003ADDAD /* Main.storyboard */,
 				F24FF51621DE6065003ADDAD /* Assets.xcassets */,
 				F24FF51821DE6065003ADDAD /* LaunchScreen.storyboard */,
-				F24FF51B21DE6065003ADDAD /* Info.plist */,
-				F24FF52121DE67A2003ADDAD /* GoogleService-Info.plist */,
 			);
-			path = firebaseByAravind;
+			path = "supporting files";
+			sourceTree = "<group>";
+		};
+		F258C5E721E4FCEA00B653F8 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				F27BE17021E1FC370088A5D0 /* TableViewController.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -160,6 +206,7 @@
 				F24FF51A21DE6065003ADDAD /* LaunchScreen.storyboard in Resources */,
 				F24FF52221DE67A3003ADDAD /* GoogleService-Info.plist in Resources */,
 				F24FF51721DE6065003ADDAD /* Assets.xcassets in Resources */,
+				F258C5E921E5014800B653F8 /* Default-568h@2x.png in Resources */,
 				F24FF51521DE6063003ADDAD /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -230,6 +277,7 @@
 			files = (
 				F24FF51221DE6063003ADDAD /* ViewController.swift in Sources */,
 				F24FF51021DE6063003ADDAD /* AppDelegate.swift in Sources */,
+				F258C5E221E4FBAD00B653F8 /* item.swift in Sources */,
 				F27BE17121E1FC370088A5D0 /* TableViewController.swift in Sources */,
 				F2FD682421DFB2BF006798C0 /* register.swift in Sources */,
 			);

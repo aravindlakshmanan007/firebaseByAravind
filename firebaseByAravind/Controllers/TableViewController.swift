@@ -9,14 +9,17 @@
 import UIKit
 
 class TableViewController: UITableViewController {
-    var itemarray=[""]
+    var itemarray=[item]()
     let arraykey="listitem"
     let db=UserDefaults.standard
     override func viewDidLoad() {
         super.viewDidLoad()
-        if let item=db.object(forKey: arraykey) as? [String]{
-           itemarray=item
-        }
+        let newitem=item()
+        newitem.itemtitle="buy apples"
+        itemarray.append(newitem)
+//        if let item=db.object(forKey: arraykey) as? [String]{
+//           itemarray=item
+//        }
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -38,18 +41,16 @@ class TableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ToDoItemCell", for: indexPath)
-
+        let item=itemarray[indexPath.row]
         // Configure the cell...
-        cell.textLabel?.text=itemarray[indexPath.row]
+        cell.textLabel?.text=item.itemtitle
+        cell.accessoryType = item.done == false ? .none : .checkmark
         return cell
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        itemarray[indexPath.row].done = !itemarray[indexPath.row].done
         tableView.deselectRow(at: indexPath, animated: true)
-        if (tableView.cellForRow(at: indexPath)?.accessoryType != .checkmark){
-            tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
-        }else{
-            tableView.cellForRow(at: indexPath)?.accessoryType = .none
-        }
+        tableView.reloadData()
     }
    /*
     // Override to support conditional editing of the table view.
@@ -101,7 +102,9 @@ class TableViewController: UITableViewController {
         var textfield = UITextField()
         let alert=UIAlertController(title: "Add New Item", message: "", preferredStyle: .alert)
         let alertaction=UIAlertAction(title: "Add item", style: .default) { (alert) in
-            self.itemarray.append(textfield.text!)
+            let newitem=item()
+            newitem.itemtitle=textfield.text!
+            self.itemarray.append(newitem)
             self.db.set(self.itemarray, forKey: self.arraykey)
             self.tableView.reloadData()
         }
