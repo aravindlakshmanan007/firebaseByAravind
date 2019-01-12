@@ -11,15 +11,10 @@ import UIKit
 class TableViewController: UITableViewController {
     var itemarray=[item]()
     let arraykey="listitem"
-    let db=UserDefaults.standard
+     let filepath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent("Item.plist")
     override func viewDidLoad() {
         super.viewDidLoad()
-        let newitem=item()
-        newitem.itemtitle="buy apples"
-        itemarray.append(newitem)
-//        if let item=db.object(forKey: arraykey) as? [String]{
-//           itemarray=item
-//        }
+        loaddata()
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -49,8 +44,9 @@ class TableViewController: UITableViewController {
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         itemarray[indexPath.row].done = !itemarray[indexPath.row].done
+        encoder()
         tableView.deselectRow(at: indexPath, animated: true)
-        tableView.reloadData()
+
     }
    /*
     // Override to support conditional editing of the table view.
@@ -105,8 +101,7 @@ class TableViewController: UITableViewController {
             let newitem=item()
             newitem.itemtitle=textfield.text!
             self.itemarray.append(newitem)
-            self.db.set(self.itemarray, forKey: self.arraykey)
-            self.tableView.reloadData()
+            self.encoder()
         }
         alert.addTextField { (text) in
             text.placeholder="Enter the new item"
@@ -114,5 +109,25 @@ class TableViewController: UITableViewController {
         }
         alert.addAction(alertaction)
         present(alert,animated: true,completion: nil)
+    }
+    func encoder(){
+        let encoder=PropertyListEncoder()
+        do{
+            let data=try encoder.encode(itemarray)
+            try data.write(to:filepath!)
+        }catch{
+            print("ErrorEncoding item array \(error)")
+        }
+        tableView.reloadData()
+    }
+    func loaddata(){
+        if let data=try? Data(contentsOf: filepath!){
+            let decoder=PropertyListDecoder()
+            do{
+            itemarray=try decoder.decode([item].self, from: data)
+            }catch{
+                
+            }
+        }
     }
 }
