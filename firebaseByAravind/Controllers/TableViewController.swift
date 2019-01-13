@@ -7,27 +7,25 @@
 //
 
 import UIKit
+import CoreData
 
 class TableViewController: UITableViewController {
-    var itemarray=[item]()
-    let arraykey="listitem"
-     let filepath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent("Item.plist")
+    
+    
+    var itemarray=[Item]()
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        print(FileManager.default.urls(for: .documentDirectory, in: .userDomainMask))
         loaddata()
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        
     }
 
     // MARK: - Table view data source
 
-//    override func numberOfSections(in tableView: UITableView) -> Int {
-//        // #warning Incomplete implementation, return the number of sections
-//        return 0
-//    }
+
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
@@ -35,73 +33,40 @@ class TableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: "ToDoItemCell", for: indexPath)
         let item=itemarray[indexPath.row]
         // Configure the cell...
-        cell.textLabel?.text=item.itemtitle
+        cell.textLabel?.text=item.title
         cell.accessoryType = item.done == false ? .none : .checkmark
         return cell
     }
+    
+    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+//        context.delete(itemarray[indexPath.row])
+//        itemarray.remove(at: indexPath.row)
         itemarray[indexPath.row].done = !itemarray[indexPath.row].done
-        encoder()
+        savedata()
         tableView.deselectRow(at: indexPath, animated: true)
 
     }
-   /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
+  
+   
 
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
+   
     // MARK: - add item method
     
     @IBAction func additem(_ sender: UIBarButtonItem) {
         var textfield = UITextField()
         let alert=UIAlertController(title: "Add New Item", message: "", preferredStyle: .alert)
         let alertaction=UIAlertAction(title: "Add item", style: .default) { (alert) in
-            let newitem=item()
-            newitem.itemtitle=textfield.text!
+            let newitem=Item(context: self.context)
+            newitem.title=textfield.text!
+            newitem.done = false
             self.itemarray.append(newitem)
-            self.encoder()
+            self.savedata()
         }
         alert.addTextField { (text) in
             text.placeholder="Enter the new item"
@@ -110,24 +75,27 @@ class TableViewController: UITableViewController {
         alert.addAction(alertaction)
         present(alert,animated: true,completion: nil)
     }
-    func encoder(){
-        let encoder=PropertyListEncoder()
+    
+    
+    func savedata(){
         do{
-            let data=try encoder.encode(itemarray)
-            try data.write(to:filepath!)
+            try context.save()
+            print("Successfully saved")
         }catch{
-            print("ErrorEncoding item array \(error)")
+            print("Error saving context \(error)")
         }
         tableView.reloadData()
     }
+    
+    
+    
     func loaddata(){
-        if let data=try? Data(contentsOf: filepath!){
-            let decoder=PropertyListDecoder()
-            do{
-            itemarray=try decoder.decode([item].self, from: data)
-            }catch{
-                
-            }
+        
+        let request : NSFetchRequest<Item> = Item.fetchRequest()
+        do{
+           itemarray = try context.fetch(request)
+        }catch{
+            print("Error Requesting data \(error)")
         }
     }
 }

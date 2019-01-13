@@ -8,14 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		90792FD8B05982E38A5AE1AB /* Pods_firebaseByAravind.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AE926B7E01DA438A57BB1AA /* Pods_firebaseByAravind.framework */; };
+		F22C46B721EA4E5100EEF98D /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F22C46B521EA4E5100EEF98D /* DataModel.xcdatamodeld */; };
 		F24FF51021DE6063003ADDAD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F24FF50F21DE6063003ADDAD /* AppDelegate.swift */; };
 		F24FF51221DE6063003ADDAD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F24FF51121DE6063003ADDAD /* ViewController.swift */; };
 		F24FF51521DE6063003ADDAD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F24FF51321DE6063003ADDAD /* Main.storyboard */; };
 		F24FF51721DE6065003ADDAD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F24FF51621DE6065003ADDAD /* Assets.xcassets */; };
 		F24FF51A21DE6065003ADDAD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F24FF51821DE6065003ADDAD /* LaunchScreen.storyboard */; };
 		F24FF52221DE67A3003ADDAD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F24FF52121DE67A2003ADDAD /* GoogleService-Info.plist */; };
-		F258C5E221E4FBAD00B653F8 /* item.swift in Sources */ = {isa = PBXBuildFile; fileRef = F258C5E121E4FBAD00B653F8 /* item.swift */; };
-		F258C5E921E5014800B653F8 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F258C5E821E5014800B653F8 /* Default-568h@2x.png */; };
 		F27BE17121E1FC370088A5D0 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F27BE17021E1FC370088A5D0 /* TableViewController.swift */; };
 		F2FD682421DFB2BF006798C0 /* register.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FD682321DFB2BF006798C0 /* register.swift */; };
 /* End PBXBuildFile section */
@@ -23,6 +22,7 @@
 /* Begin PBXFileReference section */
 		9AE926B7E01DA438A57BB1AA /* Pods_firebaseByAravind.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_firebaseByAravind.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB542E69185639B1B6C27522 /* Pods-firebaseByAravind.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-firebaseByAravind.debug.xcconfig"; path = "Pods/Target Support Files/Pods-firebaseByAravind/Pods-firebaseByAravind.debug.xcconfig"; sourceTree = "<group>"; };
+		F22C46B621EA4E5100EEF98D /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
 		F24FF50C21DE6063003ADDAD /* firebaseByAravind.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = firebaseByAravind.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F24FF50F21DE6063003ADDAD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F24FF51121DE6063003ADDAD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -31,8 +31,6 @@
 		F24FF51921DE6065003ADDAD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F24FF51B21DE6065003ADDAD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F24FF52121DE67A2003ADDAD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		F258C5E121E4FBAD00B653F8 /* item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = item.swift; sourceTree = "<group>"; };
-		F258C5E821E5014800B653F8 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		F27BE17021E1FC370088A5D0 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		F2FD682321DFB2BF006798C0 /* register.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = register.swift; sourceTree = "<group>"; };
 		F3C08231E10AC306C30514FF /* Pods-firebaseByAravind.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-firebaseByAravind.release.xcconfig"; path = "Pods/Target Support Files/Pods-firebaseByAravind/Pods-firebaseByAravind.release.xcconfig"; sourceTree = "<group>"; };
@@ -70,7 +68,6 @@
 		F24FF50321DE6063003ADDAD = {
 			isa = PBXGroup;
 			children = (
-				F258C5E821E5014800B653F8 /* Default-568h@2x.png */,
 				F24FF50E21DE6063003ADDAD /* firebaseByAravind */,
 				F24FF50D21DE6063003ADDAD /* Products */,
 				605076CC5075AE2165103776 /* Pods */,
@@ -103,7 +100,7 @@
 		F258C5E321E4FC3D00B653F8 /* DataModel */ = {
 			isa = PBXGroup;
 			children = (
-				F258C5E121E4FBAD00B653F8 /* item.swift */,
+				F22C46B521EA4E5100EEF98D /* DataModel.xcdatamodeld */,
 			);
 			path = DataModel;
 			sourceTree = "<group>";
@@ -206,7 +203,6 @@
 				F24FF51A21DE6065003ADDAD /* LaunchScreen.storyboard in Resources */,
 				F24FF52221DE67A3003ADDAD /* GoogleService-Info.plist in Resources */,
 				F24FF51721DE6065003ADDAD /* Assets.xcassets in Resources */,
-				F258C5E921E5014800B653F8 /* Default-568h@2x.png in Resources */,
 				F24FF51521DE6063003ADDAD /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -277,7 +273,7 @@
 			files = (
 				F24FF51221DE6063003ADDAD /* ViewController.swift in Sources */,
 				F24FF51021DE6063003ADDAD /* AppDelegate.swift in Sources */,
-				F258C5E221E4FBAD00B653F8 /* item.swift in Sources */,
+				F22C46B721EA4E5100EEF98D /* DataModel.xcdatamodeld in Sources */,
 				F27BE17121E1FC370088A5D0 /* TableViewController.swift in Sources */,
 				F2FD682421DFB2BF006798C0 /* register.swift in Sources */,
 			);
@@ -487,6 +483,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		F22C46B521EA4E5100EEF98D /* DataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				F22C46B621EA4E5100EEF98D /* DataModel.xcdatamodel */,
+			);
+			currentVersion = F22C46B621EA4E5100EEF98D /* DataModel.xcdatamodel */;
+			path = DataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = F24FF50421DE6063003ADDAD /* Project object */;
 }
