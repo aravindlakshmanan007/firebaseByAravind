@@ -16,6 +16,7 @@
 		F24FF51A21DE6065003ADDAD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F24FF51821DE6065003ADDAD /* LaunchScreen.storyboard */; };
 		F24FF52221DE67A3003ADDAD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F24FF52121DE67A2003ADDAD /* GoogleService-Info.plist */; };
 		F27BE17121E1FC370088A5D0 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F27BE17021E1FC370088A5D0 /* TableViewController.swift */; };
+		F28A6E0A21EB72C000353B26 /* CatagoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F28A6E0921EB72C000353B26 /* CatagoryTableViewController.swift */; };
 		F2FD682421DFB2BF006798C0 /* register.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FD682321DFB2BF006798C0 /* register.swift */; };
 /* End PBXBuildFile section */
 
@@ -32,6 +33,7 @@
 		F24FF51B21DE6065003ADDAD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F24FF52121DE67A2003ADDAD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F27BE17021E1FC370088A5D0 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
+		F28A6E0921EB72C000353B26 /* CatagoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatagoryTableViewController.swift; sourceTree = "<group>"; };
 		F2FD682321DFB2BF006798C0 /* register.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = register.swift; sourceTree = "<group>"; };
 		F3C08231E10AC306C30514FF /* Pods-firebaseByAravind.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-firebaseByAravind.release.xcconfig"; path = "Pods/Target Support Files/Pods-firebaseByAravind/Pods-firebaseByAravind.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -135,6 +137,7 @@
 		F258C5E721E4FCEA00B653F8 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				F28A6E0921EB72C000353B26 /* CatagoryTableViewController.swift */,
 				F27BE17021E1FC370088A5D0 /* TableViewController.swift */,
 			);
 			path = Controllers;
@@ -274,6 +277,7 @@
 				F24FF51221DE6063003ADDAD /* ViewController.swift in Sources */,
 				F24FF51021DE6063003ADDAD /* AppDelegate.swift in Sources */,
 				F22C46B721EA4E5100EEF98D /* DataModel.xcdatamodeld in Sources */,
+				F28A6E0A21EB72C000353B26 /* CatagoryTableViewController.swift in Sources */,
 				F27BE17121E1FC370088A5D0 /* TableViewController.swift in Sources */,
 				F2FD682421DFB2BF006798C0 /* register.swift in Sources */,
 			);

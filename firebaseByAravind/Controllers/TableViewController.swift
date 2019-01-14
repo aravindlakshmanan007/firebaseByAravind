@@ -11,18 +11,18 @@ import CoreData
 
 class TableViewController: UITableViewController {
     
-    
     var itemarray=[Item]()
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-    
+    var selectedCategory : Category?{
+        didSet{
+            loaddata()
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         print(FileManager.default.urls(for: .documentDirectory, in: .userDomainMask))
-        loaddata()
-        
     }
-
     // MARK: - Table view data source
 
 
@@ -65,6 +65,7 @@ class TableViewController: UITableViewController {
             let newitem=Item(context: self.context)
             newitem.title=textfield.text!
             newitem.done = false
+            newitem.parentCategory=self.selectedCategory
             self.itemarray.append(newitem)
             self.savedata()
         }
@@ -89,13 +90,43 @@ class TableViewController: UITableViewController {
     
     
     
-    func loaddata(){
+    func loaddata(with request : NSFetchRequest<Item> = Item.fetchRequest(),predicate : NSPredicate? = nil){
         
-        let request : NSFetchRequest<Item> = Item.fetchRequest()
+        let categorypredicate = NSPredicate(format: "parentCategory.name MATCHES %@", selectedCategory!.name!)
+
+        if let additionalPredicate = predicate{
+            request.predicate  = NSCompoundPredicate(andPredicateWithSubpredicates: [categorypredicate,additionalPredicate])
+        }else{
+            request.predicate = categorypredicate
+        }
         do{
            itemarray = try context.fetch(request)
         }catch{
             print("Error Requesting data \(error)")
+        }
+        tableView.reloadData()
+    }
+}
+//MARK: - Search Bar Methods
+
+extension TableViewController : UISearchBarDelegate {
+  
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchBar.text?.count == 0{
+            loaddata()
+
+            DispatchQueue.main.async {
+                searchBar.resignFirstResponder()
+            }
+
+        }else{
+            let request : NSFetchRequest<Item> = Item.fetchRequest()
+
+            let predicate = NSPredicate(format: "title CONTAINS[cd] %@", searchBar.text!)
+
+            request.sortDescriptors = [NSSortDescriptor(key: "title", ascending: true)]
+
+            loaddata(with: request, predicate: predicate)
         }
     }
 }
