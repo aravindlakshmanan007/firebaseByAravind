@@ -11,6 +11,7 @@ target 'firebaseByAravind' do
   pod 'Firebase/Database'
   pod 'SVProgressHUD'
   pod 'ChameleonFramework'
+  pod 'RealmSwift'
 end
 post_install do |installer|
     installer.pods_project.targets.each do |target|
