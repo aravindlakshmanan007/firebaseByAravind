@@ -7,12 +7,12 @@
 //
 
 import UIKit
-import CoreData
+import RealmSwift
 
 class TableViewController: UITableViewController {
     
-    var itemarray=[Item]()
-    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    let realm = try! Realm()
+    var todoItems : Results<Item>?
     var selectedCategory : Category?{
         didSet{
             loaddata()
@@ -29,28 +29,41 @@ class TableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return itemarray.count
+        return todoItems?.count ?? 1
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "ToDoItemCell", for: indexPath)
-        let item=itemarray[indexPath.row]
+        if let item=todoItems?[indexPath.row]{
         // Configure the cell...
         cell.textLabel?.text=item.title
         cell.accessoryType = item.done == false ? .none : .checkmark
+        }
+        else{
+            cell.textLabel?.text="No Items Added"
+        }
         return cell
     }
     
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+  
+        if let items = todoItems?[indexPath.row]{
+            do{
+                try realm.write {
+                   // realm.delete(items)
+                    items.done = !items.done
+                }
+            }catch{
+                print("Error updating")
+            }
+        }
         
-//        context.delete(itemarray[indexPath.row])
-//        itemarray.remove(at: indexPath.row)
-        itemarray[indexPath.row].done = !itemarray[indexPath.row].done
-        savedata()
+//todoItems?[indexPath.row].done = !todoItems![indexPath.row].done
+//        savedata(todoItems)
         tableView.deselectRow(at: indexPath, animated: true)
-
+        tableView.reloadData()
     }
   
    
@@ -62,12 +75,22 @@ class TableViewController: UITableViewController {
         var textfield = UITextField()
         let alert=UIAlertController(title: "Add New Item", message: "", preferredStyle: .alert)
         let alertaction=UIAlertAction(title: "Add item", style: .default) { (alert) in
-            let newitem=Item(context: self.context)
-            newitem.title=textfield.text!
-            newitem.done = false
-            newitem.parentCategory=self.selectedCategory
-            self.itemarray.append(newitem)
-            self.savedata()
+        if let currentCategory = self.selectedCategory{
+            do{
+                try self.realm.write {
+                    let newitem=Item()
+                    let date=Date()
+                    let result = date
+                    newitem.title=textfield.text!
+                    newitem.date = result
+                    currentCategory.items.append(newitem)
+                }
+                print("Successfully saved")
+            }catch{
+                print("Error saving \(error)")
+            }
+        }
+        self.tableView.reloadData()
         }
         alert.addTextField { (text) in
             text.placeholder="Enter the new item"
@@ -78,39 +101,24 @@ class TableViewController: UITableViewController {
     }
     
     
-    func savedata(){
-        do{
-            try context.save()
-            print("Successfully saved")
-        }catch{
-            print("Error saving context \(error)")
-        }
+    func savedata(item : Item){
+        
         tableView.reloadData()
     }
     
     
     
-    func loaddata(with request : NSFetchRequest<Item> = Item.fetchRequest(),predicate : NSPredicate? = nil){
+    func loaddata(){
         
-        let categorypredicate = NSPredicate(format: "parentCategory.name MATCHES %@", selectedCategory!.name!)
-
-        if let additionalPredicate = predicate{
-            request.predicate  = NSCompoundPredicate(andPredicateWithSubpredicates: [categorypredicate,additionalPredicate])
-        }else{
-            request.predicate = categorypredicate
-        }
-        do{
-           itemarray = try context.fetch(request)
-        }catch{
-            print("Error Requesting data \(error)")
-        }
+        
+        todoItems = selectedCategory?.items.sorted(byKeyPath: "title", ascending: true)
         tableView.reloadData()
     }
 }
 //MARK: - Search Bar Methods
 
 extension TableViewController : UISearchBarDelegate {
-  
+
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if searchBar.text?.count == 0{
             loaddata()
@@ -118,15 +126,9 @@ extension TableViewController : UISearchBarDelegate {
             DispatchQueue.main.async {
                 searchBar.resignFirstResponder()
             }
-
         }else{
-            let request : NSFetchRequest<Item> = Item.fetchRequest()
-
-            let predicate = NSPredicate(format: "title CONTAINS[cd] %@", searchBar.text!)
-
-            request.sortDescriptors = [NSSortDescriptor(key: "title", ascending: true)]
-
-            loaddata(with: request, predicate: predicate)
+            todoItems = todoItems?.filter("title CONTAINS[cd] %@",searchBar.text).sorted(byKeyPath: "date", ascending: true)
+            tableView.reloadData()
         }
     }
 }

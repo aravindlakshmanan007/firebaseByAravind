@@ -8,16 +8,17 @@
 
 import UIKit
 import CoreData
+import RealmSwift
 
 class CatagoryTableViewController: UITableViewController {
-    var itemarray = [Category]()
-    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
+    var itemarray:Results<Category>?
+    
+    let realm = try! Realm()
     override func viewDidLoad() {
     
-        super.viewDidLoad()
-        loaddata()
-        
+    super.viewDidLoad()
+            loaddata()
     }
 
     // MARK: - Table view data source
@@ -25,13 +26,13 @@ class CatagoryTableViewController: UITableViewController {
  
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-       return itemarray.count
+        return itemarray?.count ?? 1
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "CategoryCell", for: indexPath)
-        cell.textLabel?.text = itemarray[indexPath.row].name
+        cell.textLabel?.text = itemarray?[indexPath.row].name
         return cell
     }
     
@@ -50,7 +51,7 @@ class CatagoryTableViewController: UITableViewController {
         
         let destinationVC = segue.destination as! TableViewController
         if let indexpath = tableView.indexPathForSelectedRow{
-            destinationVC.selectedCategory = itemarray[indexpath.row]
+            destinationVC.selectedCategory = itemarray?[indexpath.row]
             
         }
     
@@ -63,10 +64,9 @@ class CatagoryTableViewController: UITableViewController {
         var textfield = UITextField()
         let alert = UIAlertController(title: "Add New Category", message: "", preferredStyle: .alert)
         let action = UIAlertAction(title: "Add Category", style: .default) { (alert) in
-            let newitem = Category(context: self.context)
-            newitem.name=textfield.text
-            self.itemarray.append(newitem)
-            self.savedata()
+            let newitem = Category()
+            newitem.name=textfield.text!
+            self.savedata(category : newitem)
         }
         alert.addTextField { (text) in
             text.placeholder = "Enter the New Category"
@@ -78,22 +78,20 @@ class CatagoryTableViewController: UITableViewController {
     
     //MARK: - Saving and Retrieving
     
-    func savedata(){
+    func savedata(category : Category){
         
         do{
-            try context.save()
+            try realm.write{
+                realm.add(category)
+            }
         }catch{
             print("Error Savind Data \(error)")
         }
         tableView.reloadData()
     }
-    func loaddata(with request : NSFetchRequest<Category> = Category.fetchRequest()){
+    func loaddata(){
         
-        do{
-            itemarray = try context.fetch(request)
-        }catch{
-            print("Error Loading Data \(error)")
-        }
+        itemarray = realm.objects(Category.self)
         tableView.reloadData()
     }
     

@@ -18,19 +18,19 @@ class ViewController: UIViewController {
     }
     
     @IBAction func loginpressed(_ sender: Any) {
-        SVProgressHUD.show()
-        Auth.auth().signIn(withEmail: email.text!, password: password.text!) { (user, error) in
-            if(error != nil){
-                print(error!)
-                SVProgressHUD.showError(withStatus: "Check your email and password")
-            }else{
-                SVProgressHUD.dismiss()
-                print("Successfully login")
-                self.email.text=""
-                self.password.text=""
-                self.performSegue(withIdentifier: "login", sender: self)
-                
-            }
-        }
-    }
+//        SVProgressHUD.show()
+//        Auth.auth().signIn(withEmail: email.text!, password: password.text!) { (user, error) in
+//            if(error != nil){
+//                print(error!)
+//                SVProgressHUD.showError(withStatus: "Check your email and password")
+//            }else{
+//                SVProgressHUD.dismiss()
+//                print("Successfully login")
+//                self.email.text=""
+//                self.password.text=""
+//                self.performSegue(withIdentifier: "login", sender: self)
+//
+//            }
+//        }
+   }
 }

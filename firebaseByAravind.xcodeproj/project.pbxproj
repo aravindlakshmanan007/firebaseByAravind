@@ -8,25 +8,26 @@
 
 /* Begin PBXBuildFile section */
 		90792FD8B05982E38A5AE1AB /* Pods_firebaseByAravind.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AE926B7E01DA438A57BB1AA /* Pods_firebaseByAravind.framework */; };
-		F22C46B721EA4E5100EEF98D /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F22C46B521EA4E5100EEF98D /* DataModel.xcdatamodeld */; };
+		F22A2DC121FC20EC00AFD814 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = F22A2DC021FC20EC00AFD814 /* Item.swift */; };
+		F22A2DC321FC216200AFD814 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = F22A2DC221FC216200AFD814 /* Category.swift */; };
 		F24FF51021DE6063003ADDAD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F24FF50F21DE6063003ADDAD /* AppDelegate.swift */; };
-		F24FF51221DE6063003ADDAD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F24FF51121DE6063003ADDAD /* ViewController.swift */; };
 		F24FF51521DE6063003ADDAD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F24FF51321DE6063003ADDAD /* Main.storyboard */; };
 		F24FF51721DE6065003ADDAD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F24FF51621DE6065003ADDAD /* Assets.xcassets */; };
 		F24FF51A21DE6065003ADDAD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F24FF51821DE6065003ADDAD /* LaunchScreen.storyboard */; };
 		F24FF52221DE67A3003ADDAD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F24FF52121DE67A2003ADDAD /* GoogleService-Info.plist */; };
 		F27BE17121E1FC370088A5D0 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F27BE17021E1FC370088A5D0 /* TableViewController.swift */; };
 		F28A6E0A21EB72C000353B26 /* CatagoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F28A6E0921EB72C000353B26 /* CatagoryTableViewController.swift */; };
-		F2FD682421DFB2BF006798C0 /* register.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FD682321DFB2BF006798C0 /* register.swift */; };
+		F2EFA73621FC817C00EE371C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2EFA73521FC817C00EE371C /* ViewController.swift */; };
+		F2EFA73821FC818400EE371C /* register.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2EFA73721FC818400EE371C /* register.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		9AE926B7E01DA438A57BB1AA /* Pods_firebaseByAravind.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_firebaseByAravind.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB542E69185639B1B6C27522 /* Pods-firebaseByAravind.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-firebaseByAravind.debug.xcconfig"; path = "Pods/Target Support Files/Pods-firebaseByAravind/Pods-firebaseByAravind.debug.xcconfig"; sourceTree = "<group>"; };
-		F22C46B621EA4E5100EEF98D /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
+		F22A2DC021FC20EC00AFD814 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		F22A2DC221FC216200AFD814 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		F24FF50C21DE6063003ADDAD /* firebaseByAravind.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = firebaseByAravind.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F24FF50F21DE6063003ADDAD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		F24FF51121DE6063003ADDAD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		F24FF51421DE6063003ADDAD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F24FF51621DE6065003ADDAD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F24FF51921DE6065003ADDAD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -34,7 +35,8 @@
 		F24FF52121DE67A2003ADDAD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F27BE17021E1FC370088A5D0 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		F28A6E0921EB72C000353B26 /* CatagoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatagoryTableViewController.swift; sourceTree = "<group>"; };
-		F2FD682321DFB2BF006798C0 /* register.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = register.swift; sourceTree = "<group>"; };
+		F2EFA73521FC817C00EE371C /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		F2EFA73721FC818400EE371C /* register.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = register.swift; sourceTree = "<group>"; };
 		F3C08231E10AC306C30514FF /* Pods-firebaseByAravind.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-firebaseByAravind.release.xcconfig"; path = "Pods/Target Support Files/Pods-firebaseByAravind/Pods-firebaseByAravind.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -102,7 +104,8 @@
 		F258C5E321E4FC3D00B653F8 /* DataModel */ = {
 			isa = PBXGroup;
 			children = (
-				F22C46B521EA4E5100EEF98D /* DataModel.xcdatamodeld */,
+				F22A2DC221FC216200AFD814 /* Category.swift */,
+				F22A2DC021FC20EC00AFD814 /* Item.swift */,
 			);
 			path = DataModel;
 			sourceTree = "<group>";
@@ -110,8 +113,8 @@
 		F258C5E421E4FC5B00B653F8 /* authetication */ = {
 			isa = PBXGroup;
 			children = (
-				F24FF51121DE6063003ADDAD /* ViewController.swift */,
-				F2FD682321DFB2BF006798C0 /* register.swift */,
+				F2EFA73721FC818400EE371C /* register.swift */,
+				F2EFA73521FC817C00EE371C /* ViewController.swift */,
 			);
 			path = authetication;
 			sourceTree = "<group>";
@@ -278,12 +281,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F24FF51221DE6063003ADDAD /* ViewController.swift in Sources */,
+				F2EFA73621FC817C00EE371C /* ViewController.swift in Sources */,
 				F24FF51021DE6063003ADDAD /* AppDelegate.swift in Sources */,
-				F22C46B721EA4E5100EEF98D /* DataModel.xcdatamodeld in Sources */,
+				F22A2DC121FC20EC00AFD814 /* Item.swift in Sources */,
 				F28A6E0A21EB72C000353B26 /* CatagoryTableViewController.swift in Sources */,
 				F27BE17121E1FC370088A5D0 /* TableViewController.swift in Sources */,
-				F2FD682421DFB2BF006798C0 /* register.swift in Sources */,
+				F2EFA73821FC818400EE371C /* register.swift in Sources */,
+				F22A2DC321FC216200AFD814 /* Category.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -434,7 +438,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = WUH89742HZ;
 				INFOPLIST_FILE = firebaseByAravind/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -456,7 +460,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = WUH89742HZ;
 				INFOPLIST_FILE = firebaseByAravind/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -491,19 +495,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		F22C46B521EA4E5100EEF98D /* DataModel.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				F22C46B621EA4E5100EEF98D /* DataModel.xcdatamodel */,
-			);
-			currentVersion = F22C46B621EA4E5100EEF98D /* DataModel.xcdatamodel */;
-			path = DataModel.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = F24FF50421DE6063003ADDAD /* Project object */;
 }
